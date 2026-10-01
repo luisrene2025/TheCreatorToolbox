@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; media-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self'; form-action 'self'; base-uri 'none'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; media-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self' https://formsubmit.co; frame-src https://www.youtube-nocookie.com; form-action 'self'; base-uri 'none'; object-src 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Media in Multiplatform + The Creator Toolbox</title>
 <meta name="description" content="Two sides of the same fight. Media in Multiplatform brings proven broadcast technology to production teams. The Creator Toolbox builds indie AI tools for streamers and podcasters.">
@@ -53,7 +53,25 @@ a{color:inherit}
 .seam small{display:block;font:600 .68rem/1.2 var(--body);margin-top:.3rem}
 .split[data-pick=l] .seam{background:var(--navy);color:#fff;border-color:#fff;box-shadow:0 0 0 6px rgba(15,42,74,.3)}
 .split[data-pick=r] .seam{background:var(--yel);color:#15161A;border-color:#15161A;box-shadow:0 0 0 6px rgba(255,199,44,.35)}
-.logo{max-height:58px;max-width:240px;width:auto;height:auto}
+.logo{max-height:64px;max-width:240px;width:auto;height:auto}
+.l .name::before{content:"";width:10px;height:10px;border-radius:50%;background:#2F8CFF;box-shadow:0 0 8px #2F8CFF;animation:pulse 1.6s infinite}
+h2.led::before{content:"";display:inline-block;width:12px;height:12px;border-radius:50%;background:#2F8CFF;box-shadow:0 0 8px #2F8CFF;margin-right:.55rem;vertical-align:middle;animation:pulse 1.6s infinite}
+.brandrow{display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap;margin-bottom:.8rem}
+.brandrow h2{margin:0}
+.bar .r{padding-right:52px}
+.lang{position:absolute;right:8px;top:9px;height:30px;min-width:40px;padding:0 .6em;border:2px solid var(--yel);background:var(--coal);color:var(--yel);font:800 .8rem var(--body);border-radius:99px;cursor:pointer}
+.lang:hover{background:var(--yel);color:var(--coal)}
+.tb .btn{color:#fff}.tb .btn.p{background:var(--yel);color:#15161A;border-color:var(--yel)}
+.tmedia{position:relative;aspect-ratio:16/9;border-radius:4px;overflow:hidden;background:linear-gradient(135deg,#1d2a44,#0b0e14)}
+.tmedia img.main{width:100%;height:100%;object-fit:cover}
+.tmedia iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.play{position:absolute;left:10px;bottom:10px;background:var(--yel);color:#15161A;border:0;border-radius:99px;padding:.45em 1em;font:800 .85rem var(--body);cursor:pointer}
+.thumbs{display:flex;gap:6px}
+.thumbs button{padding:0;width:56px;height:38px;border:2px solid #3a3d46;border-radius:3px;overflow:hidden;background:none;cursor:pointer}
+.thumbs img{width:100%;height:100%;object-fit:cover}
+.act{display:flex;align-items:center;gap:.8rem;flex-wrap:wrap;margin-top:auto;padding-top:.6rem}
+.act .btn{margin:0;padding:.55em 1.1em;font-size:.92rem}
+.price{font:800 1.3rem var(--cond)}
 .promo{display:block;margin-top:1.1rem;text-decoration:none;border:1px solid #d5dbe3;border-radius:4px;overflow:hidden;background:#fff}
 .promo img{width:100%;aspect-ratio:16/9;object-fit:cover}
 .promo span{display:block;padding:.55rem .8rem;font-size:.88rem;font-weight:700;color:var(--navy)}
@@ -126,11 +144,12 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 <nav class="bar" aria-label="Choose a side">
   <a class="l" href="#mimp">Media in Multiplatform</a>
   <a class="r" href="#toolbox">The Creator Toolbox</a>
+<button class="lang" id="lang" type="button" aria-label="Cambiar a español">ES</button>
 </nav>
 
 <header class="split">
   <div class="side l">
-    <p class="name"><img id="logo" class="logo" src="assets/mimp-logo.jpg" alt="Media in Multiplatform" hidden><span id="logotxt">Media in Multiplatform</span></p>
+    <p class="name">Media in Multiplatform</p>
     <h1>New technology, made safe for live air.</h1>
     <p class="sub">We take technology that isn't operationally proven yet, build a proof of concept inside your real production, push it until it breaks, and hand you something reliable enough to go live.</p>
     <div>
@@ -154,7 +173,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
 <section class="method" id="mimp">
   <div class="wrap">
-    <h2>Media in Multiplatform</h2>
+    <div class="brandrow"><img id="logo" class="logo" src="assets/mimp-logo.png" alt="Media in Multiplatform" hidden><h2 class="led">Media in Multiplatform</h2></div>
     <p class="lede">A value-added reseller and integrator for broadcasters and mainstream content creators. Every project follows the same four steps, because "it worked in the demo" isn't good enough on live air.</p>
     <ul class="steps">
       <li><b>Assemble</b><p>Bring the right vendors and your internal teams to one table.</p></li>
@@ -177,7 +196,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
   <div class="wrap">
     <h2>The Creator Toolbox</h2>
     <p class="lede">Indie software for people who produce shows without a broadcast budget. Tools run on your own PC, so there are no cloud fees and your footage stays with you.</p>
-    <div class="banner"><img src="assets/The Creator Toolbox.png" alt="The Creator Toolbox: AI Virtual Director, Signal, AI Match Analyst and Motion AI" loading="lazy"></div>
+    <div class="banner"><img src="assets/tct.png" alt="The Creator Toolbox: AI Virtual Director, Signal, AI Match Analyst and Motion AI" loading="lazy"></div>
     <div class="grid" id="tools"></div>
     <p class="rules"><b>Commentary, not copy-paste.</b> Reacting to and analyzing other people's content is a big part of streaming. These tools help you add real analysis and transformation on top of it, and are built to work within each platform's rules. Rules differ by platform, so check yours.</p>
   </div>
@@ -204,7 +223,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
     <h2>Let's talk</h2>
     <p class="lede" style="color:#d9dee6">Tell me which side you're on. I read every message.</p>
     <form id="form" method="POST" action="contact.php">
-      <input type="hidden" name="t" id="t">
+      <input type="hidden" name="t" id="t"><input type="hidden" name="tool" id="tool">
       <p class="hp"><label>Leave empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
       <label>I am a…
         <select name="side" id="side">
@@ -230,8 +249,9 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 <script>
 /* ===== EDIT HERE ===== */
 const SITE = {
-  email: "luisrene@mediainmultiplatform.com",   // shown only if sending fails
-  formEndpoint: "contact.php",                    // PHP script on your host (see contact.php)
+  email: "luisrene@mediainmultiplatform.com",
+  // Messages are delivered to your inbox by FormSubmit (free). See the setup note in the chat.
+  formEndpoint: "https://formsubmit.co/ajax/luisrene@mediainmultiplatform.com",
   links: [{ label: "LinkedIn", url: "https://linkedin.com/in/luisrenegarcia/" }]
 };
 const VENDORS = [
@@ -239,40 +259,171 @@ const VENDORS = [
     text: "Finds your footage by what's in it. Axle AI catalogs media where it already lives, tags faces, objects, logos and speech, and makes it searchable from a browser or inside Adobe Premiere.",
     points: ["On-premises, cloud or hybrid", "Auto-tagging, transcription and semantic search", "Works with Adobe, Avid and Final Cut"],
     // One promo image (event, launch, offer). Drop the file in assets/. If it's missing, nothing shows.
-    promo: { src: "assets/axle-promo.jpg", alt: "Axle AI promotion", caption: "", link: "" } },
+    promo: { src: "assets/axle-promo.jpg", alt: "Axle AI promotion", caption: "", captionEs: "", link: "" },
+    es: { kind: "Gestión de medios con IA",
+      text: "Encuentra tu material por lo que contiene. Axle AI cataloga los medios donde ya viven, etiqueta rostros, objetos, logotipos y voz, y los hace buscables desde un navegador o dentro de Adobe Premiere.",
+      points: ["En sitio, nube o híbrido", "Etiquetado automático, transcripción y búsqueda semántica", "Funciona con Adobe, Avid y Final Cut"] } },
   { name: "wTVision", kind: "Real-time broadcast graphics",
     text: "On-air graphics and data for live TV. Sports statistics, election specials, virtual sets and augmented reality, plus the control tools to run them live.",
     points: ["Specialist in live sports data and graphics", "Virtual sets and AR", "Playout and newsroom integration"],
-    promo: { src: "assets/wtvision-promo.jpg", alt: "wTVision promotion", caption: "", link: "" } }
+    promo: { src: "assets/wtvision-promo.jpg", alt: "wTVision promotion", caption: "", captionEs: "", link: "" },
+    es: { kind: "Gráficos de transmisión en tiempo real",
+      text: "Gráficos y datos al aire para TV en vivo. Estadísticas deportivas, especiales electorales, sets virtuales y realidad aumentada, además de las herramientas para operarlos en vivo.",
+      points: ["Especialista en datos y gráficos deportivos en vivo", "Sets virtuales y realidad aumentada", "Integración con playout y sala de redacción"] } }
 ];
+/* Each tool can have:  images (files in assets/, first one is the cover)
+   youtube (the video ID, e.g. "dQw4w9WgXcQ")   buy (your Lemon Squeezy checkout link)   price ("$49")
+   Leave a field empty and that part simply doesn't show. */
 const TOOLS = [  // status: Prototype | Beta | Available | Coming soon
   { name: "Signal", status: "Prototype", tagline: "Know what your audience is saying.",
-    text: "Groups thousands of YouTube comments into clear opinions and summarizes them on one dashboard." },
+    text: "Groups thousands of YouTube comments into clear opinions and summarizes them on one dashboard.",
+    images: ["assets/signal-1.png", "assets/signal-2.png"], youtube: "", buy: "", price: "",
+    es: { tagline: "Sabe qué dice tu audiencia.", text: "Agrupa miles de comentarios de YouTube en opiniones claras y las resume en un solo panel." } },
   { name: "Virtual Director", status: "Prototype", tagline: "Cut cameras without a crew.",
-    text: "Scores every camera like a technical director and cuts the live feed, with keyboard and hand-gesture override." },
+    text: "Scores every camera like a technical director and cuts the live feed, with keyboard and hand-gesture override.",
+    images: ["assets/director-1.png", "assets/director-2.png"], youtube: "", buy: "", price: "",
+    es: { tagline: "Corta cámaras sin equipo.", text: "Califica cada cámara como un director técnico y corta la señal en vivo, con control manual por teclado y gestos." } },
   { name: "AI Match Analyst", status: "Prototype", tagline: "A tactical co-commentator.",
-    text: "Watches a soccer match on your screen and speaks up only when something tactically meaningful happens." },
+    text: "Watches a soccer match on your screen and speaks up only when something tactically meaningful happens.",
+    images: ["assets/match-1.png", "assets/match-2.png"], youtube: "", buy: "", price: "",
+    es: { tagline: "Un copiloto táctico.", text: "Mira un partido de fútbol en tu pantalla y habla solo cuando pasa algo táctico importante." } },
   { name: "Blury", status: "Prototype", tagline: "Live privacy blur.",
-    text: "Finds faces in a screen region locally and blurs them in real time, so nothing private reaches the stream." },
+    text: "Finds faces in a screen region locally and blurs them in real time, so nothing private reaches the stream.",
+    images: ["assets/blury-1.png", "assets/blury-2.png"], youtube: "", buy: "", price: "",
+    es: { tagline: "Desenfoque de privacidad en vivo.", text: "Detecta rostros en una región de pantalla de forma local y los desenfoca en tiempo real, para que nada privado llegue al stream." } },
   { name: "Motion AI", status: "Coming soon", tagline: "Human movement into intelligent motion.",
-    text: "Next in the toolbox. Join the list to hear first." }
+    text: "Next in the toolbox. Join the list to hear first.", images: [], youtube: "", buy: "", price: "",
+    es: { tagline: "Del movimiento humano a movimiento inteligente.", text: "Lo siguiente en la caja de herramientas. Únete a la lista para enterarte primero." } }
 ];
+const UI = {
+  en: { watch: "Watch demo", buy: "Buy now", request: "Request access", sending: "Sending…",
+    ok: "Thanks! Your message is on its way to my inbox. I'll get back to you soon.",
+    fail: "Couldn't send that. Please try again, or write to ", status: {} },
+  es: { watch: "Ver demo", buy: "Comprar", request: "Solicitar acceso", sending: "Enviando…",
+    ok: "¡Gracias! Tu mensaje va en camino a mi bandeja. Te respondo pronto.",
+    fail: "No se pudo enviar. Inténtalo de nuevo o escribe a ",
+    status: { "Prototype": "Prototipo", "Coming soon": "Próximamente", "Beta": "Beta", "Available": "Disponible" } }
+};
+/* Spanish for every fixed sentence on the page: English text -> Spanish text */
+const ES = {
+  "New technology, made safe for live air.": "Tecnología nueva, lista para el aire en vivo.",
+  "We take technology that isn't operationally proven yet, build a proof of concept inside your real production, push it until it breaks, and hand you something reliable enough to go live.": "Tomamos tecnología que aún no está probada en operación, armamos una prueba de concepto dentro de tu producción real, la llevamos hasta el límite y te entregamos algo lo bastante confiable para salir al aire.",
+  "How we work": "Cómo trabajamos", "Talk to us": "Hablemos",
+  "Indie creators fight the same fight with fewer resources. That's why I also build": "Los creadores independientes pelean la misma batalla con menos recursos. Por eso también construyo",
+  "same fight": "misma lucha", "different tools": "distintas herramientas",
+  "Build a show that fights above its weight.": "Crea un show que pelea por encima de su peso.",
+  "Local-first AI tools for streamers and podcasters who earn from their content: auto-direct your cameras, read your audience, and commentate like a pro.": "Herramientas de IA locales para streamers y podcasters que viven de su contenido: dirige tus cámaras en automático, lee a tu audiencia y comenta como un profesional.",
+  "See the tools": "Ver las herramientas", "Get early access": "Acceso anticipado",
+  "Everything here comes from 20 years inside broadcast. Need the enterprise version? That's": "Todo esto viene de 20 años dentro de la televisión. ¿Necesitas la versión empresarial? Esa es",
+  "A value-added reseller and integrator for broadcasters and mainstream content creators. Every project follows the same four steps, because \"it worked in the demo\" isn't good enough on live air.": "Revendedor de valor agregado e integrador para televisoras y creadores de contenido de gran alcance. Cada proyecto sigue los mismos cuatro pasos, porque «funcionó en la demo» no basta en vivo.",
+  "Assemble": "Reunir", "Bring the right vendors and your internal teams to one table.": "Sentamos a la misma mesa a los proveedores correctos y a tus equipos internos.",
+  "Prove it": "Probarlo", "Build the proof of concept inside a real production environment.": "Armamos la prueba de concepto dentro de un entorno de producción real.",
+  "Stress it": "Exigirlo", "Deliberately push the entire workflow until the weak points show.": "Llevamos todo el flujo al límite a propósito hasta que aparecen los puntos débiles.",
+  "Go live": "Salir al aire", "Turn the result into an operation your team can rely on every day.": "Convertimos el resultado en una operación en la que tu equipo puede confiar todos los días.",
+  "Brands we represent": "Marcas que representamos",
+  "Two partners that cover what broadcasters ask for most: finding their media and putting data on air.": "Dos socios que cubren lo que más piden las televisoras: encontrar su material y poner datos al aire.",
+  "Indie software for people who produce shows without a broadcast budget. Tools run on your own PC, so there are no cloud fees and your footage stays with you.": "Software independiente para quienes producen shows sin presupuesto de televisora. Las herramientas corren en tu propia PC: sin cuotas de nube y tu material se queda contigo.",
+  "Commentary, not copy-paste.": "Comentario, no copiar y pegar.",
+  "Reacting to and analyzing other people's content is a big part of streaming. These tools help you add real analysis and transformation on top of it, and are built to work within each platform's rules. Rules differ by platform, so check yours.": "Reaccionar y analizar el contenido de otros es gran parte del streaming. Estas herramientas te ayudan a añadir análisis y transformación reales encima, y están hechas para trabajar dentro de las reglas de cada plataforma. Las reglas cambian según la plataforma, así que revisa las tuyas.",
+  "Why both?": "¿Por qué las dos?",
+  "I've spent my career on the corporate side of the fight: broadcast crews, rights, budgets and zero tolerance for dead air. I also know the other side, where one person runs the camera, the chat and the clips, and a copyright strike can end a month's income.": "He pasado mi carrera en el lado corporativo de la lucha: equipos de transmisión, derechos, presupuestos y cero tolerancia al aire muerto. También conozco el otro lado, donde una sola persona maneja la cámara, el chat y los clips, y un strike de derechos de autor puede acabar con el ingreso de un mes.",
+  "Each side needs what the other already figured out. Broadcasters need indie speed. Creators need broadcast discipline. I build for both.": "Cada lado necesita lo que el otro ya resolvió. Las televisoras necesitan la velocidad indie. Los creadores necesitan la disciplina de la televisión. Construyo para ambos.",
+  "20+ years": "Más de 20 años", "designing production workflows, 13 of them at Sony Electronics.": "diseñando flujos de producción, 13 de ellos en Sony Electronics.",
+  "First live 4K and HDR productions in Mexico": "Primeras producciones en vivo en 4K y HDR en México", ", including sports and drama.": ", incluyendo deportes y drama.",
+  "Televisa ForoTV": "Televisa ForoTV", "ENG news system, delivered through Media in Multiplatform.": "sistema ENG de noticias, entregado a través de Media in Multiplatform.",
+  "Bilingual": "Bilingüe", "English and Spanish, working across the U.S., LATAM and Japan.": "inglés y español, trabajando en EE. UU., LATAM y Japón.",
+  "Let's talk": "Hablemos", "Tell me which side you're on. I read every message.": "Dime de qué lado estás. Leo todos los mensajes.",
+  "I am a…": "Soy…", "Broadcaster or production company": "Televisora o productora",
+  "Streamer, podcaster or creator": "Streamer, podcaster o creador", "Something in between": "Algo intermedio",
+  "Name": "Nombre", "Email": "Correo", "What are you trying to do?": "¿Qué quieres lograr?",
+  "Send message": "Enviar mensaje", "#SameFightDifferentTools": "#MismaLuchaDistintasHerramientas"
+};
+const PH = { "Your show, your setup, the problem you need solved…": "Tu show, tu equipo, el problema que necesitas resolver…" };
 /* ===== END EDIT ===== */
 
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const $ = id => document.getElementById(id);
 const safeUrl = u => /^(https?:\/\/|\/|[\w-]+(\/|\.))/i.test(u || "") && !/^\s*javascript:/i.test(u) ? u : "";
+let lang = "en";
+try { lang = localStorage.getItem("lang") || ((navigator.language || "").toLowerCase().startsWith("es") ? "es" : "en"); } catch (_) {}
+const U = () => UI[lang];
+
 function promoHTML(p) {
   if (!p || !p.src) return "";
-  const inner = `<img src="${esc(p.src)}" alt="${esc(p.alt || "")}" loading="lazy">${p.caption ? `<span>${esc(p.caption)}</span>` : ""}`;
+  const cap = lang === "es" && p.captionEs ? p.captionEs : p.caption;
+  const inner = `<img src="${esc(p.src)}" alt="${esc(p.alt || "")}" loading="lazy">${cap ? `<span>${esc(cap)}</span>` : ""}`;
   const href = safeUrl(p.link);
   return href ? `<a class="promo" href="${esc(href)}" target="_blank" rel="noopener">${inner}</a>` : `<div class="promo">${inner}</div>`;
 }
+function renderVendors() {
+  $("vendors").innerHTML = VENDORS.map(v => { const L = lang === "es" ? { ...v, ...v.es } : v;
+    return `<article class="vcard"><h3>${esc(v.name)}</h3><p class="k">${esc(L.kind)}</p><p>${esc(L.text)}</p><ul>${L.points.map(p => `<li>${esc(p)}</li>`).join("")}</ul>${promoHTML(v.promo)}</article>`; }).join("");
+  document.querySelectorAll(".promo img").forEach(i => {
+    const drop = () => i.closest(".promo").remove();
+    i.addEventListener("error", drop, { once: true });
+    if (i.complete && !i.naturalWidth) drop();
+  });
+}
+function cleanup(card) {
+  const tm = card.querySelector(".tmedia");
+  if (tm && !tm.querySelector("img,.play,iframe")) tm.remove();
+  const th = card.querySelector(".thumbs");
+  if (th && th.children.length < 2) th.remove();
+}
+function renderTools() {
+  $("tools").innerHTML = TOOLS.map(t => {
+    const L = lang === "es" ? { ...t, ...t.es } : t;
+    const buy = safeUrl(t.buy), yt = /^[\w-]{6,20}$/.test(t.youtube || "") ? t.youtube : "";
+    const imgs = t.images || [], soon = /soon/i.test(t.status);
+    return `<article class="tool">
+      ${imgs.length || yt ? `<div class="tmedia">${imgs[0] ? `<img class="main" src="${esc(imgs[0])}" alt="${esc(t.name)}" loading="lazy">` : ""}${yt ? `<button class="play" type="button" data-yt="${yt}">▶ ${esc(U().watch)}</button>` : ""}</div>` : ""}
+      ${imgs.length > 1 ? `<div class="thumbs">${imgs.map(s => `<button type="button" data-src="${esc(s)}" aria-label="${esc(t.name)}"><img src="${esc(s)}" alt="" loading="lazy"></button>`).join("")}</div>` : ""}
+      <span class="tag ${soon ? "s" : ""}">${esc(U().status[t.status] || t.status)}</span>
+      <h3>${esc(t.name)}</h3><p class="t">${esc(L.tagline)}</p><p class="d">${esc(L.text)}</p>
+      <div class="act">${t.price ? `<span class="price">${esc(t.price)}</span>` : ""}${buy ? `<a class="btn p" href="${esc(buy)}" target="_blank" rel="noopener">${esc(U().buy)}</a>` : soon ? "" : `<a class="btn" href="#contact" data-tool="${esc(t.name)}">${esc(U().request)}</a>`}</div>
+    </article>`; }).join("");
+  document.querySelectorAll("#tools .tool").forEach(card => card.querySelectorAll("img").forEach(im => {
+    const bad = () => { (im.closest(".thumbs button") || im).remove(); cleanup(card); };
+    im.addEventListener("error", bad, { once: true });
+    if (im.complete && !im.naturalWidth) bad();
+  }));
+}
+// translate fixed text: walks every text node and swaps it if we have a Spanish version
+function translateStatic() {
+  const w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT), nodes = [];
+  while (w.nextNode()) if (/\S/.test(w.currentNode.nodeValue) && !w.currentNode.parentElement.closest("script,style")) nodes.push(w.currentNode);
+  nodes.forEach(n => {
+    if (n._en === undefined) n._en = n.nodeValue;
+    const m = n._en.match(/^(\s*)([\s\S]*?)(\s*)$/), key = m[2].replace(/\s+/g, " ");
+    n.nodeValue = lang === "es" && ES[key] ? m[1] + ES[key] + m[3] : n._en;
+  });
+  const ta = $("about"); if (!ta._en) ta._en = ta.placeholder;
+  ta.placeholder = lang === "es" && PH[ta._en] ? PH[ta._en] : ta._en;
+  document.documentElement.lang = lang;
+  const b = $("lang"); b.textContent = lang === "es" ? "EN" : "ES";
+  b.setAttribute("aria-label", lang === "es" ? "Switch to English" : "Cambiar a español");
+}
+function renderAll() { renderVendors(); renderTools(); translateStatic(); }
+$("lang").addEventListener("click", () => { lang = lang === "es" ? "en" : "es"; try { localStorage.setItem("lang", lang); } catch (_) {} renderAll(); });
+
+$("links").innerHTML = SITE.links.map(l => `<a href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)}</a>`).join(" · ");
+$("yr").textContent = new Date().getFullYear();
 // corporate logo: shown only if assets/mimp-logo.png exists
-(() => { const lg = $("logo"), tx = $("logotxt");
-  const ok = () => { lg.hidden = false; tx.hidden = true; };
-  lg.addEventListener("load", ok);
-  if (lg.complete && lg.naturalWidth) ok(); })();
+(() => { const lg = $("logo"), show = () => { lg.hidden = false; };
+  lg.addEventListener("load", show); if (lg.complete && lg.naturalWidth) show(); })();
+// tool cards: play the YouTube demo on click (nothing loads from YouTube until then), switch pictures
+$("tools").addEventListener("click", e => {
+  const p = e.target.closest(".play");
+  if (p) { p.closest(".tmedia").innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${p.dataset.yt}?autoplay=1&rel=0" title="Demo" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>`; return; }
+  const th = e.target.closest(".thumbs button");
+  if (th) { const m = th.closest(".tool").querySelector(".tmedia .main"); if (m) m.src = th.dataset.src; }
+});
+// any "contact" button preselects the right side (and the tool, if it came from a card)
+document.addEventListener("click", e => {
+  const a = e.target.closest('a[href="#contact"]'); if (!a) return;
+  $("side").selectedIndex = a.closest(".side.r, #toolbox") ? 1 : 0;
+  $("tool").value = a.dataset.tool || "";
+});
 // circle: contrasts with the side being explored
 const split = document.querySelector(".split"), sides = split.querySelectorAll(".side"), wide = matchMedia("(min-width:861px)");
 const pick = v => v ? (split.dataset.pick = v) : delete split.dataset.pick;
@@ -286,33 +437,24 @@ if ("IntersectionObserver" in window) {
     es.forEach(e => e.isIntersecting && pick(e.target.classList.contains("l") ? "l" : "r")); }, { threshold: .45 });
   sides.forEach(sd => io.observe(sd)); }
 $("t").value = Date.now();
-$("vendors").innerHTML = VENDORS.map(v => `<article class="vcard"><h3>${esc(v.name)}</h3><p class="k">${esc(v.kind)}</p><p>${esc(v.text)}</p><ul>${v.points.map(p => `<li>${esc(p)}</li>`).join("")}</ul>${promoHTML(v.promo)}</article>`).join("");
-document.querySelectorAll(".promo img").forEach(i => {
-  const drop = () => i.closest(".promo").remove();
-  i.addEventListener("error", drop, { once: true });
-  if (i.complete && !i.naturalWidth) drop();
-});
-$("tools").innerHTML = TOOLS.map(t => `<article class="tool"><span class="tag ${/soon/i.test(t.status) ? "s" : ""}">${esc(t.status)}</span><h3>${esc(t.name)}</h3><p class="t">${esc(t.tagline)}</p><p class="d">${esc(t.text)}</p></article>`).join("");
-$("links").innerHTML = SITE.links.map(l => `<a href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)}</a>`).join(" · ");
-$("yr").textContent = new Date().getFullYear();
-document.querySelectorAll('a[href="#contact"]').forEach(a => a.addEventListener("click", () => {
-  $("side").selectedIndex = a.closest(".side.r") || a.closest("#toolbox") ? 1 : 0;
-}));
+
 $("form").addEventListener("submit", async e => {
   e.preventDefault();
-  const f = e.target, msg = $("msg"), btn = f.querySelector("button");
-  btn.disabled = true; msg.textContent = "Sending…";
+  const f = e.target, msg = $("msg"), btn = f.querySelector("button"), fd = new FormData(f);
+  btn.disabled = true; msg.textContent = U().sending;
   try {
-    const r = await fetch(SITE.formEndpoint, { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: new URLSearchParams(new FormData(f)) });
-    const j = await r.json();
-    if (!r.ok || !j.ok) throw 0;
-    msg.textContent = "Thanks! Your message is in my inbox. I'll get back to you soon.";
-    f.reset(); $("t").value = Date.now();
-  } catch (_) {
-    msg.textContent = "Couldn't send that. Please try again, or write to " + SITE.email + ".";
-  }
+    const fs = /formsubmit\.co/.test(SITE.formEndpoint);
+    const init = fs ? { method: "POST", headers: { "Content-Type": "application/json", "Accept": "application/json" },
+      body: JSON.stringify({ name: fd.get("name"), email: fd.get("email"), I_am: fd.get("side"), tool: fd.get("tool") || "-", message: fd.get("about"),
+        _subject: "Website inquiry: " + fd.get("side"), _honey: fd.get("bot-field"), _captcha: "false", _template: "table" }) }
+      : { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: new URLSearchParams(fd) };
+    const r = await fetch(SITE.formEndpoint, init), j = await r.json();
+    if (!r.ok || !(j.ok || String(j.success) === "true")) throw 0;
+    msg.textContent = U().ok; f.reset(); $("t").value = Date.now();
+  } catch (_) { msg.textContent = U().fail + SITE.email + "."; }
   btn.disabled = false;
 });
+renderAll();
 </script>
 </body>
 </html>
