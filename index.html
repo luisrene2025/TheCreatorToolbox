@@ -3,386 +3,271 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Creator Toolbox — AI tools for streamers and podcasters</title>
-<meta name="description" content="Local-first AI tools that help streamers and podcasters grow their presence: audience insights, auto camera direction, live privacy blur and more.">
-<meta property="og:title" content="The Creator Toolbox">
-<meta property="og:description" content="AI tools that run on your own machine, built for creators who make money from their content.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%23FFC72C'/%3E%3Ctext x='50' y='72' font-size='60' text-anchor='middle'%3E🧰%3C/text%3E%3C/svg%3E">
+<title>Media in Multiplatform + The Creator Toolbox</title>
+<meta name="description" content="Two sides of the same fight. Media in Multiplatform brings proven broadcast technology to production teams. The Creator Toolbox builds indie AI tools for streamers and podcasters.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='50' height='100' fill='%230F2A4A'/%3E%3Crect x='50' width='50' height='100' fill='%23FFC72C'/%3E%3C/svg%3E">
 <style>
 :root{
-  --steel:#E8EBF0; --paper:#F7F8FA; --ink:#1F232B; --mute:#5B6270; --line:#C9CED8;
-  --yellow:#FFC72C; --yellow-d:#E0A800; --live:#E5322D; --card:#fff;
-  --r:6px;
-  --head:"Arial Narrow","Helvetica Neue Condensed","Roboto Condensed",Impact,"Segoe UI",system-ui,sans-serif;
-  --body:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --navy:#0F2A4A; --steel:#2B5C8F; --fog:#EEF2F6; --white:#fff;
+  --coal:#15161A; --yel:#FFC72C; --live:#E5322D; --gray:#A9AEB8;
+  --serif:Georgia,"Times New Roman",serif;
+  --cond:"Arial Narrow","Roboto Condensed",Impact,system-ui,sans-serif;
+  --body:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
 }
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){--steel:#1A1D23;--paper:#14161B;--ink:#EDEFF3;--mute:#9AA1AF;--line:#343945;--card:#21252D}
-}
-:root[data-theme="dark"]{--steel:#1A1D23;--paper:#14161B;--ink:#EDEFF3;--mute:#9AA1AF;--line:#343945;--card:#21252D}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:70px}
-body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.6 var(--body);-webkit-text-size-adjust:100%}
-img,video{max-width:100%;display:block}
-a{color:inherit}
-:focus-visible{outline:3px solid var(--yellow-d);outline-offset:2px}
-.wrap{width:min(1120px,100% - 40px);margin-inline:auto}
-h1,h2,h3{font-family:var(--head);line-height:1.02;margin:0;letter-spacing:-.01em;font-weight:800}
-h1{font-size:clamp(2.8rem,9vw,5.8rem)}
-h2{font-size:clamp(2rem,5vw,3.2rem)}
-h3{font-size:1.7rem}
+html{scroll-behavior:smooth;scroll-padding-top:56px}
+body{margin:0;font:17px/1.6 var(--body);color:#1b2430;background:var(--white);-webkit-text-size-adjust:100%}
+img{max-width:100%;display:block}
 p{margin:0}
-.btn{display:inline-block;font:700 1rem var(--body);padding:.8em 1.4em;border-radius:var(--r);text-decoration:none;border:2px solid var(--ink);cursor:pointer;background:var(--yellow);color:#1F232B;transition:transform .12s}
-.btn:hover{transform:translateY(-2px)}
-.btn.ghost{background:transparent;color:var(--ink)}
-/* nav */
-header{position:sticky;top:0;z-index:10;background:var(--paper);border-bottom:2px solid var(--ink)}
-header .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:12px}
-.logo{font:800 1.35rem var(--head);text-decoration:none;display:flex;align-items:center;gap:.5rem}
-.logo i{width:28px;height:28px;background:var(--yellow);border:2px solid var(--ink);border-radius:5px;display:grid;place-items:center;font-style:normal;font-size:15px}
-nav{display:flex;gap:1.3rem;align-items:center}
-nav a{text-decoration:none;font-weight:600;font-size:.95rem}
-nav a:hover{text-decoration:underline;text-decoration-color:var(--yellow-d);text-decoration-thickness:3px}
-#theme{background:none;border:2px solid var(--ink);color:var(--ink);border-radius:var(--r);width:34px;height:34px;cursor:pointer;font-size:15px}
-@media(max-width:640px){nav a.hide-sm{display:none}}
-/* hero */
-.hero{padding:clamp(40px,8vw,90px) 0 clamp(40px,6vw,70px);background:var(--steel);border-bottom:2px solid var(--ink);background-image:repeating-linear-gradient(-45deg,transparent 0 22px,rgba(128,128,128,.07) 22px 44px)}
-.hero .wrap{display:grid;gap:40px;grid-template-columns:1.15fr .85fr;align-items:center}
-@media(max-width:860px){.hero .wrap{grid-template-columns:1fr}}
-.onair{display:inline-flex;align-items:center;gap:.5rem;font-weight:700;font-size:.9rem;border:2px solid var(--ink);padding:.2em .8em;border-radius:99px;background:var(--card);margin-bottom:1.2rem}
-.onair::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--live);animation:pulse 1.6s infinite}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--yel);outline-offset:2px}
+.wrap{width:min(1100px,100% - 40px);margin-inline:auto}
+/* top bar: two halves, one bar */
+.bar{position:sticky;top:0;z-index:20;display:flex;height:48px;font-size:.9rem;font-weight:700}
+.bar a{flex:1;display:flex;align-items:center;justify-content:center;text-decoration:none;gap:.5rem}
+.bar .l{background:var(--navy);color:#fff}
+.bar .r{background:var(--coal);color:var(--yel);font-family:var(--cond);font-size:1rem}
+.bar a:hover{filter:brightness(1.2)}
+/* split hero */
+.split{display:flex;min-height:calc(100svh - 48px);position:relative}
+.side{flex:1;padding:clamp(36px,6vw,80px) clamp(20px,4vw,56px);display:flex;flex-direction:column;justify-content:center;transition:flex .5s ease;position:relative}
+.side.l{background:var(--fog);color:var(--navy);font-family:var(--serif)}
+.side.r{background:var(--coal);color:#fff;background-image:repeating-linear-gradient(-45deg,transparent 0 20px,rgba(255,199,44,.045) 20px 40px)}
+@media(min-width:861px){.split:hover .side{flex:.8}.split .side:hover,.split .side:focus-within{flex:1.5}}
+.side h1{margin:0 0 1rem;line-height:1.02}
+.l h1{font:400 clamp(2.2rem,4.6vw,3.7rem)/1.08 var(--serif);letter-spacing:-.02em}
+.r h1{font:800 clamp(2.6rem,5.4vw,4.6rem)/1 var(--cond);letter-spacing:-.01em}
+.side .sub{max-width:27em;margin-bottom:1.6rem;opacity:.85}
+.l .sub{font-family:var(--serif);font-size:1.1rem}
+.name{font:700 .95rem var(--body);margin-bottom:1.1rem;display:flex;align-items:center;gap:.6rem}
+.r .name::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--live);animation:pulse 1.6s infinite}
 @keyframes pulse{50%{opacity:.25}}
-@media(prefers-reduced-motion:reduce){.onair::before{animation:none}html{scroll-behavior:auto}.btn{transition:none}}
-.hero p.lead{font-size:1.2rem;color:var(--mute);max-width:34em;margin:1.3rem 0 1.8rem}
-.cta{display:flex;gap:.8rem;flex-wrap:wrap}
-/* media slot */
-.media{position:relative;aspect-ratio:16/10;border:2px solid var(--ink);border-radius:var(--r);overflow:hidden;background:var(--steel);box-shadow:6px 6px 0 var(--ink)}
-.media img,.media video{width:100%;height:100%;object-fit:cover}
-.ph{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:1rem;color:var(--mute);font-size:.85rem;background:repeating-linear-gradient(45deg,var(--steel) 0 14px,var(--paper) 14px 28px)}
-.ph b{display:block;font-size:2.6rem;line-height:1.1}
-/* sections */
-section{padding:clamp(48px,8vw,90px) 0}
-.sec-head{max-width:40em;margin-bottom:2.4rem}
-.sec-head p{color:var(--mute);margin-top:.8rem}
-/* products */
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));gap:26px}
-.card{background:var(--card);border:2px solid var(--ink);border-radius:var(--r);display:flex;flex-direction:column;overflow:hidden}
-.card .media{border:0;border-bottom:2px solid var(--ink);border-radius:0;box-shadow:none}
-.card .body{padding:1.3rem;display:flex;flex-direction:column;gap:.8rem;flex:1}
-.tag{align-self:flex-start;font:700 .78rem var(--body);background:var(--yellow);color:#1F232B;padding:.15em .7em;border-radius:3px;border:1.5px solid var(--ink)}
-.tag.soon{background:var(--steel);color:var(--ink)}
-.card p.tl{font-weight:600}
-.card p.ds{color:var(--mute);font-size:.95rem}
-.card ul{margin:0;padding-left:1.1rem;font-size:.93rem}
-.card li{margin:.15rem 0}
-.card .foot{margin-top:auto;padding-top:.6rem;display:flex;justify-content:space-between;align-items:center;gap:.6rem;flex-wrap:wrap}
-.price{font:800 1.3rem var(--head)}
-.card .btn{padding:.55em 1.1em;font-size:.92rem}
-/* audience band */
-.band{background:var(--ink);color:var(--paper);padding:26px 0;border-block:2px solid var(--ink)}
-.band ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.6rem 2.2rem;justify-content:center;font:700 1.15rem var(--head)}
-.band li::before{content:"✓ ";color:var(--yellow)}
-/* gallery */
-.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));gap:18px}
-.gallery figure{margin:0}
-.gallery .media{box-shadow:none;aspect-ratio:4/3}
-.gallery figcaption{font-size:.88rem;color:var(--mute);margin-top:.5rem}
-/* about */
-.about{background:var(--steel);border-block:2px solid var(--ink)}
-.about .wrap{display:grid;grid-template-columns:.7fr 1.3fr;gap:44px;align-items:center}
-@media(max-width:760px){.about .wrap{grid-template-columns:1fr}}
-.about .media{aspect-ratio:1/1;max-width:340px}
-.about p+p{margin-top:1rem}
-/* form */
-form{display:grid;gap:14px;max-width:560px}
+.btn{display:inline-block;padding:.75em 1.35em;font:700 1rem var(--body);text-decoration:none;border-radius:4px;border:2px solid currentColor;margin:0 .6rem .6rem 0}
+.l .btn.p{background:var(--navy);color:#fff;border-color:var(--navy)}
+.r .btn.p{background:var(--yel);color:#15161A;border-color:var(--yel)}
+.peek{margin-top:1.4rem;font-size:.9rem;opacity:.75;max-width:26em}
+.peek a{font-weight:700}
+.seam{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:5;width:92px;height:92px;border-radius:50%;background:#fff;border:3px solid var(--coal);display:grid;place-items:center;text-align:center;font:800 .78rem/1.15 var(--body);color:var(--coal);pointer-events:none;box-shadow:0 0 0 6px rgba(255,255,255,.35)}
+@media(max-width:860px){
+  .split{flex-direction:column;min-height:0}
+  .seam{position:relative;left:auto;top:auto;transform:none;margin:-46px auto -46px;width:84px;height:84px}
+  .side{padding-top:44px;padding-bottom:44px}
+  .side.r{padding-top:70px}
+  .bar{font-size:.8rem}
+}
+@media(prefers-reduced-motion:reduce){.side{transition:none}.r .name::before{animation:none}html{scroll-behavior:auto}}
+section{padding:clamp(50px,8vw,90px) 0}
+h2{margin:0 0 .8rem;font:400 clamp(1.9rem,4vw,2.8rem)/1.1 var(--serif);letter-spacing:-.01em;color:var(--navy)}
+.lede{max-width:40em;color:#4a5565;margin-bottom:2.2rem}
+/* method */
+.method{border-top:1px solid #d5dbe3}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:0;counter-reset:s;border-left:3px solid var(--navy)}
+.steps li{list-style:none;padding:1rem 1.3rem 1.2rem;border-right:1px solid #d5dbe3;counter-increment:s}
+.steps li::before{content:counter(s);font:400 2.2rem/1 var(--serif);color:var(--steel);display:block;margin-bottom:.4rem}
+.steps b{display:block;font-family:var(--serif);font-size:1.1rem;color:var(--navy);margin-bottom:.3rem}
+.steps p{font-size:.93rem;color:#4a5565}
+ul.steps{margin:0;padding:0}
+/* corporate */
+.mimp{background:var(--fog)}
+.vend{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:22px}
+.vcard{background:#fff;border-top:4px solid var(--steel);padding:1.5rem;box-shadow:0 1px 3px rgba(15,42,74,.12)}
+.vcard h3{margin:0 0 .3rem;font:400 1.6rem var(--serif);color:var(--navy)}
+.vcard .k{font-weight:700;font-size:.9rem;color:var(--steel);margin-bottom:.7rem}
+.vcard p{font-size:.95rem;color:#3d4756}
+.vcard ul{margin:.8rem 0 0;padding-left:1.1rem;font-size:.92rem;color:#3d4756}
+/* indie */
+.tb{background:var(--coal);color:#fff}
+.tb h2{font:800 clamp(2.2rem,5vw,3.6rem)/1 var(--cond);color:#fff}
+.tb .lede{color:var(--gray)}
+.banner{border:2px solid var(--yel);border-radius:6px;overflow:hidden;margin-bottom:2rem;box-shadow:6px 6px 0 var(--yel);background:#000}
+.banner img{width:100%}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr));gap:18px}
+.tool{border:2px solid #3a3d46;border-radius:6px;padding:1.2rem;background:#1d1f25;display:flex;flex-direction:column;gap:.5rem}
+.tool h3{margin:0;font:800 1.55rem var(--cond)}
+.tool .tag{align-self:flex-start;font:700 .75rem var(--body);background:var(--yel);color:#15161A;padding:.1em .6em;border-radius:3px}
+.tool .tag.s{background:#3a3d46;color:#fff}
+.tool .t{font-weight:600}
+.tool .d{font-size:.92rem;color:var(--gray)}
+.rules{margin-top:2rem;border-left:4px solid var(--yel);padding:.4rem 0 .4rem 1.2rem;max-width:44em;color:#d7dae0}
+/* both */
+.both{background:#fff;border-block:1px solid #d5dbe3}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,70px)}
+@media(max-width:760px){.cols{grid-template-columns:1fr}}
+.cols p+p{margin-top:1rem}
+.facts{margin:0;padding:0;list-style:none;font-size:.95rem}
+.facts li{padding:.55rem 0;border-bottom:1px solid #d5dbe3}
+.facts b{color:var(--navy)}
+/* contact */
+.contact{background:linear-gradient(90deg,var(--navy) 50%,var(--coal) 50%);color:#fff}
+@media(max-width:760px){.contact{background:linear-gradient(180deg,var(--navy) 50%,var(--coal) 50%)}}
+.contact h2{color:#fff}
+form{display:grid;gap:14px;max-width:560px;background:#fff;color:#15161A;padding:1.6rem;border-radius:6px;border:3px solid var(--yel)}
 label{font-weight:700;font-size:.92rem;display:grid;gap:.35rem}
-input,select,textarea{font:inherit;padding:.75em .9em;border:2px solid var(--ink);border-radius:var(--r);background:var(--card);color:var(--ink);width:100%}
-textarea{min-height:110px;resize:vertical}
+input,select,textarea{font:inherit;padding:.7em .85em;border:2px solid #15161A;border-radius:4px;width:100%;background:#fff;color:#15161A}
+textarea{min-height:100px;resize:vertical}
+form .btn{background:var(--navy);color:#fff;border-color:var(--navy);cursor:pointer;margin:0}
 #msg{min-height:1.4em;font-weight:600}
 .hp{position:absolute;left:-9999px}
-footer{padding:30px 0;border-top:2px solid var(--ink);font-size:.9rem;color:var(--mute)}
+footer{background:var(--coal);color:var(--gray);padding:26px 0;font-size:.9rem}
 footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 </style>
 </head>
 <body>
 
-<header>
-  <div class="wrap">
-    <a class="logo" href="#top"><i>🧰</i>The Creator Toolbox</a>
-    <nav>
-      <a class="hide-sm" href="#tools">Tools</a>
-      <a class="hide-sm" href="#demos">Demos</a>
-      <a class="hide-sm" href="#about">About</a>
-      <a href="#contact" class="btn" style="padding:.4em .9em;font-size:.9rem">Get early access</a>
-      <button id="theme" aria-label="Toggle dark mode">◐</button>
-    </nav>
+<nav class="bar" aria-label="Choose a side">
+  <a class="l" href="#mimp">Media in Multiplatform</a>
+  <a class="r" href="#toolbox">The Creator Toolbox</a>
+</nav>
+
+<header class="split">
+  <div class="side l">
+    <p class="name">Media in Multiplatform</p>
+    <h1>New technology, made safe for live air.</h1>
+    <p class="sub">We take technology that isn't operationally proven yet, build a proof of concept inside your real production, push it until it breaks, and hand you something reliable enough to go live.</p>
+    <div>
+      <a class="btn p" href="#mimp">How we work</a>
+      <a class="btn" href="#contact">Talk to us</a>
+    </div>
+    <p class="peek">Indie creators fight the same fight with fewer resources. That's why I also build <a href="#toolbox">The Creator Toolbox</a>.</p>
+  </div>
+  <div class="seam" aria-hidden="true">same<br>fight</div>
+  <div class="side r">
+    <p class="name">The Creator Toolbox</p>
+    <h1>Build a show that fights above its weight.</h1>
+    <p class="sub">Local-first AI tools for streamers and podcasters who earn from their content: auto-direct your cameras, read your audience, and commentate like a pro.</p>
+    <div>
+      <a class="btn p" href="#toolbox">See the tools</a>
+      <a class="btn" href="#contact">Get early access</a>
+    </div>
+    <p class="peek">Everything here comes from 20 years inside broadcast. Need the enterprise version? That's <a href="#mimp">Media in Multiplatform</a>.</p>
   </div>
 </header>
 
-<main id="top">
-  <div class="hero">
-    <div class="wrap">
-      <div>
-        <span class="onair" id="tagline">Built for creators who earn from their content</span>
-        <h1 id="h-title">Tools that make your stream look bigger than it is.</h1>
-        <p class="lead" id="h-sub">AI helpers for streamers and podcasters: know what your audience is saying, cut cameras automatically, and protect your privacy live. Everything runs on your own computer.</p>
-        <div class="cta">
-          <a class="btn" href="#tools">See the tools</a>
-          <a class="btn ghost" href="#contact">Join the early-access list</a>
-        </div>
-      </div>
-      <div class="media" id="hero-media"></div>
-    </div>
-  </div>
-
-  <div class="band"><ul>
-    <li>Runs locally, no cloud fees</li>
-    <li>Your footage never leaves your machine</li>
-    <li>Works with OBS</li>
-  </ul></div>
-
-  <section id="tools">
-    <div class="wrap">
-      <div class="sec-head">
-        <h2>The tools</h2>
-        <p>Each tool does one job well. Use one, or use them together.</p>
-      </div>
-      <div class="grid" id="products"></div>
-    </div>
-  </section>
-
-  <section id="demos" style="background:var(--steel);border-block:2px solid var(--ink)">
-    <div class="wrap">
-      <div class="sec-head">
-        <h2>See them in action</h2>
-        <p>Screenshots, clips and behind-the-scenes from the workshop.</p>
-      </div>
-      <div class="gallery" id="gallery"></div>
-    </div>
-  </section>
-
-  <section class="about" id="about" style="border-top:0">
-    <div class="wrap">
-      <div class="media" id="about-media"></div>
-      <div>
-        <h2 id="about-title">Built by a creator, for creators</h2>
-        <div id="about-text" style="margin-top:1.2rem"></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact">
-    <div class="wrap">
-      <div class="sec-head">
-        <h2>Get early access</h2>
-        <p>Tell me what you stream or podcast and which tool you want first. I read every message.</p>
-      </div>
-      <form id="form" name="early-access" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-        <input type="hidden" name="form-name" value="early-access">
-        <p class="hp"><label>Leave empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
-        <label>Name <input name="name" required autocomplete="name"></label>
-        <label>Email <input name="email" type="email" required autocomplete="email"></label>
-        <label>Which tool are you interested in?
-          <select name="tool" id="tool-select"><option>All of them</option></select>
-        </label>
-        <label>What do you create? <textarea name="about" placeholder="Twitch, YouTube, podcast, audience size, setup…"></textarea></label>
-        <button class="btn" type="submit">Request access</button>
-        <p id="msg" role="status"></p>
-      </form>
-    </div>
-  </section>
-</main>
-
-<footer>
+<section class="method" id="mimp">
   <div class="wrap">
-    <span>© <span id="yr"></span> The Creator Toolbox</span>
-    <span id="socials"></span>
+    <h2>Media in Multiplatform</h2>
+    <p class="lede">A value-added reseller and integrator for broadcasters and mainstream content creators. Every project follows the same four steps, because "it worked in the demo" isn't good enough on live air.</p>
+    <ul class="steps">
+      <li><b>Assemble</b><p>Bring the right vendors and your internal teams to one table.</p></li>
+      <li><b>Prove it</b><p>Build the proof of concept inside a real production environment.</p></li>
+      <li><b>Stress it</b><p>Deliberately push the entire workflow until the weak points show.</p></li>
+      <li><b>Go live</b><p>Turn the result into an operation your team can rely on every day.</p></li>
+    </ul>
   </div>
-</footer>
+</section>
+
+<section class="mimp">
+  <div class="wrap">
+    <h2>Brands we represent</h2>
+    <p class="lede">Two partners that cover what broadcasters ask for most: finding their media and putting data on air.</p>
+    <div class="vend" id="vendors"></div>
+  </div>
+</section>
+
+<section class="tb" id="toolbox">
+  <div class="wrap">
+    <h2>The Creator Toolbox</h2>
+    <p class="lede">Indie software for people who produce shows without a broadcast budget. Tools run on your own PC, so there are no cloud fees and your footage stays with you.</p>
+    <div class="banner"><img src="assets/tct.png" alt="The Creator Toolbox: AI Virtual Director, Signal, AI Match Analyst and Motion AI" loading="lazy"></div>
+    <div class="grid" id="tools"></div>
+    <p class="rules"><b>Commentary, not copy-paste.</b> Reacting to and analyzing other people's content is a big part of streaming. These tools help you add real analysis and transformation on top of it, and are built to work within each platform's rules. Rules differ by platform, so check yours.</p>
+  </div>
+</section>
+
+<section class="both">
+  <div class="wrap cols">
+    <div>
+      <h2>Why both?</h2>
+      <p>I've spent my career on the corporate side of the fight: broadcast crews, rights, budgets and zero tolerance for dead air. I also know the other side, where one person runs the camera, the chat and the clips, and a copyright strike can end a month's income.</p>
+      <p>Each side needs what the other already figured out. Broadcasters need indie speed. Creators need broadcast discipline. I build for both.</p>
+    </div>
+    <ul class="facts">
+      <li><b>20+ years</b> designing production workflows, 13 of them at Sony Electronics.</li>
+      <li><b>First live 4K and HDR productions in Mexico</b>, including sports and drama.</li>
+      <li><b>Televisa ForoTV</b> ENG news system, delivered through Media in Multiplatform.</li>
+      <li><b>Bilingual</b> English and Spanish, working across the U.S., LATAM and Japan.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <h2>Let's talk</h2>
+    <p class="lede" style="color:#d9dee6">Tell me which side you're on. I read every message.</p>
+    <form id="form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="contact">
+      <p class="hp"><label>Leave empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+      <label>I am a…
+        <select name="side" id="side">
+          <option>Broadcaster or production company</option>
+          <option>Streamer, podcaster or creator</option>
+          <option>Something in between</option>
+        </select>
+      </label>
+      <label>Name <input name="name" required autocomplete="name"></label>
+      <label>Email <input name="email" type="email" required autocomplete="email"></label>
+      <label>What are you trying to do? <textarea name="about" placeholder="Your show, your setup, the problem you need solved…"></textarea></label>
+      <button class="btn" type="submit">Send message</button>
+      <p id="msg" role="status"></p>
+    </form>
+  </div>
+</section>
+
+<footer><div class="wrap">
+  <span>© <span id="yr"></span> Media in Multiplatform · The Creator Toolbox</span>
+  <span id="links"></span>
+</div></footer>
 
 <script>
-/* ============================================================
-   EDIT THIS BLOCK TO UPDATE THE SITE
-   - Put images/videos in an "assets" folder next to index.html
-   - A missing file automatically shows a placeholder
-   - To add a product: copy one object in PRODUCTS and edit it
-   - To add a gallery item: add a line to GALLERY
-   ============================================================ */
+/* ===== EDIT HERE ===== */
 const SITE = {
-  email: "luisrene@mediainmultipltform.com",              // where the form falls back to (mailto)
-  heroMedia:  { type: "image", src: "assets/The Creator Toolbox.png", label: "Add assets/hero.jpg or hero1.mp4" },
-  aboutMedia: { type: "image", src: "assets/me.jpg",   label: "Add your photo: assets/me.jpg" },
-  about: [
-    "Hi, I'm [Your name]. I build software for people who make a living from a mic and a camera.",
-    "Every tool here started as something I needed for my own streams. They run locally on a regular gaming PC, so there are no subscriptions to a cloud service and your content stays yours."
-  ],
-  socials: [                                 // add or remove links
-    { label: "YouTube", url: "https://youtube.com/@yourchannel" },
-    { label: "Twitch",  url: "https://twitch.tv/yourchannel" },
-    { label: "X",       url: "https://x.com/yourhandle" }
-  ]
+  email: "heluis.reg@gmail.com",   // form fallback (mailto) if the host has no form backend
+  links: [{ label: "LinkedIn", url: "https://linkedin.com/in/luisrenegarcia/" }]
 };
-
-const PRODUCTS = [
-  {
-    name: "Signal",
-    icon: "📊",
-    status: "Prototype",                     // Prototype | Beta | Available | Coming soon
-    tagline: "Know what your audience is really saying.",
-    description: "Paste a YouTube link. Signal reads the comments, groups them by opinion, and gives you a one-page dashboard with an executive summary.",
-    features: ["Groups thousands of comments into clear themes", "Plain-English summary of each opinion group", "Runs offline with local AI models"],
-    price: "Early access",
-    link: "#contact",
-    cta: "Request access",
-    media: { type: "image", src: "assets/signal.png" }
-  },
-  {
-    name: "Virtual Director",
-    icon: "🎬",
-    status: "Prototype",
-    tagline: "Multi-camera shows without a camera operator.",
-    description: "Watches every webcam or GoPro, scores each shot like a technical director, and cuts the program feed for you. Override any time with a key or a hand gesture.",
-    features: ["Auto-cuts based on faces, speech and eye contact", "Hand-gesture camera select and hold", "Outputs to OBS virtual camera"],
-    price: "Early access",
-    link: "#contact",
-    cta: "Request access",
-    media: { type: "video", src: "assets/director.mp4", poster: "assets/director.jpg" }
-  },
-  {
-    name: "Blury",
-    icon: "🫥",
-    status: "Prototype",
-    tagline: "Blur faces and private info live, on your screen.",
-    description: "Pick a screen region and Blury finds faces locally and blurs them in real time, so a bystander or a leaked window never ends up on stream.",
-    features: ["Local face detection, no uploads", "Stable boxes that don't flicker", "Coming: license plates, logos, virtual camera"],
-    price: "Early access",
-    link: "#contact",
-    cta: "Request access",
-    media: { type: "image", src: "assets/blury.png" }
-  },
-  {
-    name: "AI Match Analyst",
-    icon: "⚽",
-    status: "Prototype",
-    tagline: "A tactical co-commentator for sports streams.",
-    description: "Watches a live soccer broadcast on your screen, builds a memory of the match, and speaks up only when something tactically meaningful happens.",
-    features: ["Live tactical insights, not play-by-play noise", "Works with a free local model", "OBS-friendly dashboard state"],
-    price: "Early access",
-    link: "#contact",
-    cta: "Request access",
-    media: { type: "image", src: "assets/match.png" }
-  }
-  /* Copy a block above to add another product. Example:
-  ,{ name:"New Tool", icon:"🧩", status:"Coming soon", tagline:"…", description:"…",
-     features:["…"], price:"$9/mo", link:"https://your-checkout-link", cta:"Buy now",
-     media:{type:"image", src:"assets/new.png"} }
-  */
+const VENDORS = [
+  { name: "Axle AI", kind: "AI media asset management",
+    text: "Finds your footage by what's in it. Axle AI catalogs media where it already lives, tags faces, objects, logos and speech, and makes it searchable from a browser or inside Adobe Premiere.",
+    points: ["On-premises, cloud or hybrid", "Auto-tagging, transcription and semantic search", "Works with Adobe, Avid and Final Cut"] },
+  { name: "wTVision", kind: "Real-time broadcast graphics",
+    text: "On-air graphics and data for live TV. Sports statistics, election specials, virtual sets and augmented reality, plus the control tools to run them live.",
+    points: ["Specialist in live sports data and graphics", "Virtual sets and AR", "Playout and newsroom integration"] }
 ];
-
-const GALLERY = [
-  { type: "image", src: "assets/gallery-1.jpg", caption: "Signal dashboard on a 40k-comment video" },
-  { type: "video", src: "assets/gallery-2.mp4", caption: "Virtual Director cutting a 3-camera podcast" },
-  { type: "image", src: "assets/gallery-3.jpg", caption: "Blury protecting a live screen share" }
-  // { type: "image", src: "assets/your-file.jpg", caption: "Your caption" },
+const TOOLS = [  // status: Prototype | Beta | Available | Coming soon
+  { name: "Signal", status: "Prototype", tagline: "Know what your audience is saying.",
+    text: "Groups thousands of YouTube comments into clear opinions and summarizes them on one dashboard." },
+  { name: "Virtual Director", status: "Prototype", tagline: "Cut cameras without a crew.",
+    text: "Scores every camera like a technical director and cuts the live feed, with keyboard and hand-gesture override." },
+  { name: "AI Match Analyst", status: "Prototype", tagline: "A tactical co-commentator.",
+    text: "Watches a soccer match on your screen and speaks up only when something tactically meaningful happens." },
+  { name: "Blury", status: "Prototype", tagline: "Live privacy blur.",
+    text: "Finds faces in a screen region locally and blurs them in real time, so nothing private reaches the stream." },
+  { name: "Motion AI", status: "Coming soon", tagline: "Human movement into intelligent motion.",
+    text: "Next in the toolbox. Join the list to hear first." }
 ];
+/* ===== END EDIT ===== */
 
-/* ============================================================
-   RENDERING — you shouldn't need to edit below this line
-   ============================================================ */
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const $ = id => document.getElementById(id);
-
-function mediaEl(m, label) {
-  const box = document.createElement("div");
-  box.style.display = "contents";
-  const ph = () => { box.innerHTML = `<div class="ph"><div><b>🖼</b>${esc(label || (m && m.src) || "Add an image or video")}</div></div>`; };
-  if (!m || !m.src) { ph(); return box; }
-  let el;
-  if (m.type === "video") {
-    el = document.createElement("video");
-    el.controls = true; el.muted = true; el.playsInline = true; el.preload = "metadata";
-    if (m.poster) el.poster = m.poster;
-    el.src = m.src;
-  } else {
-    el = document.createElement("img");
-    el.loading = "lazy"; el.alt = m.alt || label || ""; el.src = m.src;
-  }
-  el.addEventListener("error", ph, { once: true });
-  box.appendChild(el);
-  return box;
-}
-function fill(container, m, label) { container.appendChild(mediaEl(m, label)); }
-
-// hero + about
-fill($("hero-media"), SITE.heroMedia, SITE.heroMedia.label);
-fill($("about-media"), SITE.aboutMedia, SITE.aboutMedia.label);
-$("about-text").innerHTML = SITE.about.map(t => `<p>${esc(t)}</p>`).join("");
-$("socials").innerHTML = SITE.socials.map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener" style="margin-left:14px">${esc(s.label)}</a>`).join("");
+$("vendors").innerHTML = VENDORS.map(v => `<article class="vcard"><h3>${esc(v.name)}</h3><p class="k">${esc(v.kind)}</p><p>${esc(v.text)}</p><ul>${v.points.map(p => `<li>${esc(p)}</li>`).join("")}</ul></article>`).join("");
+$("tools").innerHTML = TOOLS.map(t => `<article class="tool"><span class="tag ${/soon/i.test(t.status) ? "s" : ""}">${esc(t.status)}</span><h3>${esc(t.name)}</h3><p class="t">${esc(t.tagline)}</p><p class="d">${esc(t.text)}</p></article>`).join("");
+$("links").innerHTML = SITE.links.map(l => `<a href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)}</a>`).join(" · ");
 $("yr").textContent = new Date().getFullYear();
-
-// products
-const grid = $("products"), sel = $("tool-select");
-PRODUCTS.forEach(p => {
-  const soon = /soon/i.test(p.status);
-  const card = document.createElement("article");
-  card.className = "card";
-  const m = document.createElement("div");
-  m.className = "media";
-  fill(m, p.media, p.icon + " " + p.name);
-  card.appendChild(m);
-  const b = document.createElement("div");
-  b.className = "body";
-  b.innerHTML = `
-    <span class="tag ${soon ? "soon" : ""}">${esc(p.status)}</span>
-    <h3>${esc(p.icon)} ${esc(p.name)}</h3>
-    <p class="tl">${esc(p.tagline)}</p>
-    <p class="ds">${esc(p.description)}</p>
-    <ul>${(p.features || []).map(f => `<li>${esc(f)}</li>`).join("")}</ul>
-    <div class="foot"><span class="price">${esc(p.price)}</span>
-    <a class="btn" href="${esc(p.link || "#contact")}" data-tool="${esc(p.name)}">${esc(p.cta || "Learn more")}</a></div>`;
-  card.appendChild(b);
-  grid.appendChild(card);
-  sel.add(new Option(p.name));
-});
-grid.addEventListener("click", e => {
-  const a = e.target.closest("a[data-tool]");
-  if (a && a.getAttribute("href") === "#contact") sel.value = a.dataset.tool;
-});
-
-// gallery
-GALLERY.forEach(g => {
-  const f = document.createElement("figure");
-  const m = document.createElement("div");
-  m.className = "media";
-  fill(m, g, g.caption);
-  f.appendChild(m);
-  f.insertAdjacentHTML("beforeend", `<figcaption>${esc(g.caption)}</figcaption>`);
-  $("gallery").appendChild(f);
-});
-if (!GALLERY.length) $("demos").hidden = true;
-
-// theme toggle
-$("theme").onclick = () => {
-  const r = document.documentElement;
-  const dark = r.dataset.theme ? r.dataset.theme === "dark" : matchMedia("(prefers-color-scheme:dark)").matches;
-  r.dataset.theme = dark ? "light" : "dark";
-};
-
-// form: Netlify Forms if hosted there, otherwise opens an email draft
+document.querySelectorAll('a[href="#contact"]').forEach(a => a.addEventListener("click", () => {
+  $("side").selectedIndex = a.closest(".side.r") || a.closest("#toolbox") ? 1 : 0;
+}));
 $("form").addEventListener("submit", async e => {
   e.preventDefault();
   const f = e.target, msg = $("msg");
-  const data = new URLSearchParams(new FormData(f));
   msg.textContent = "Sending…";
   try {
-    const r = await fetch("/", { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: data });
+    const r = await fetch("/", { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: new URLSearchParams(new FormData(f)) });
     if (!r.ok) throw 0;
-    msg.textContent = "Thanks! You're on the list. I'll email you soon.";
+    msg.textContent = "Thanks! I'll get back to you soon.";
     f.reset();
   } catch (_) {
-    const body = `Name: ${f.name.value}\nTool: ${f.tool.value}\n\n${f.about.value}`;
-    location.href = `mailto:${SITE.email}?subject=${encodeURIComponent("Early access request")}&body=${encodeURIComponent(body)}`;
-    msg.textContent = "Opening your email app to send the request.";
+    const body = `Name: ${f.name.value}\nI am: ${f.side.value}\n\n${f.about.value}`;
+    location.href = `mailto:${SITE.email}?subject=${encodeURIComponent("Website inquiry")}&body=${encodeURIComponent(body)}`;
+    msg.textContent = "Opening your email app to send this.";
   }
 });
 </script>
