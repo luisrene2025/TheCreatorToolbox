@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; media-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self'; form-action 'self'; base-uri 'none'; object-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Media in Multiplatform + The Creator Toolbox</title>
 <meta name="description" content="Two sides of the same fight. Media in Multiplatform brings proven broadcast technology to production teams. The Creator Toolbox builds indie AI tools for streamers and podcasters.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='50' height='100' fill='%230F2A4A'/%3E%3Crect x='50' width='50' height='100' fill='%23FFC72C'/%3E%3C/svg%3E">
@@ -47,12 +49,19 @@ a{color:inherit}
 .r .btn.p{background:var(--yel);color:#15161A;border-color:var(--yel)}
 .peek{margin-top:1.4rem;font-size:.9rem;opacity:.75;max-width:26em}
 .peek a{font-weight:700}
-.seam{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:5;width:92px;height:92px;border-radius:50%;background:#fff;border:3px solid var(--coal);display:grid;place-items:center;text-align:center;font:800 .78rem/1.15 var(--body);color:var(--coal);pointer-events:none;box-shadow:0 0 0 6px rgba(255,255,255,.35)}
+.seam{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:5;width:120px;height:120px;border-radius:50%;background:#fff;border:3px solid var(--coal);display:grid;place-content:center;text-align:center;font:800 1.05rem/1.05 var(--cond);color:var(--coal);pointer-events:none;box-shadow:0 0 0 6px rgba(255,255,255,.35);transition:background .4s,color .4s,border-color .4s,box-shadow .4s}
+.seam small{display:block;font:600 .68rem/1.2 var(--body);margin-top:.3rem}
+.split[data-pick=l] .seam{background:var(--navy);color:#fff;border-color:#fff;box-shadow:0 0 0 6px rgba(15,42,74,.3)}
+.split[data-pick=r] .seam{background:var(--yel);color:#15161A;border-color:#15161A;box-shadow:0 0 0 6px rgba(255,199,44,.35)}
+.logo{max-height:58px;max-width:240px;width:auto;height:auto}
+.promo{display:block;margin-top:1.1rem;text-decoration:none;border:1px solid #d5dbe3;border-radius:4px;overflow:hidden;background:#fff}
+.promo img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.promo span{display:block;padding:.55rem .8rem;font-size:.88rem;font-weight:700;color:var(--navy)}
 @media(max-width:860px){
   .split{flex-direction:column;min-height:0}
-  .seam{position:relative;left:auto;top:auto;transform:none;margin:-46px auto -46px;width:84px;height:84px}
+  .seam{position:relative;left:auto;top:auto;transform:none;margin:-60px auto -60px;width:108px;height:108px}
   .side{padding-top:44px;padding-bottom:44px}
-  .side.r{padding-top:70px}
+  .side.r{padding-top:78px}
   .bar{font-size:.8rem}
 }
 @media(prefers-reduced-motion:reduce){.side{transition:none}.r .name::before{animation:none}html{scroll-behavior:auto}}
@@ -121,7 +130,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
 <header class="split">
   <div class="side l">
-    <p class="name">Media in Multiplatform</p>
+    <p class="name"><img id="logo" class="logo" src="assets/mimp-logo.png" alt="Media in Multiplatform" hidden><span id="logotxt">Media in Multiplatform</span></p>
     <h1>New technology, made safe for live air.</h1>
     <p class="sub">We take technology that isn't operationally proven yet, build a proof of concept inside your real production, push it until it breaks, and hand you something reliable enough to go live.</p>
     <div>
@@ -130,7 +139,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
     </div>
     <p class="peek">Indie creators fight the same fight with fewer resources. That's why I also build <a href="#toolbox">The Creator Toolbox</a>.</p>
   </div>
-  <div class="seam" aria-hidden="true">same<br>fight</div>
+  <div class="seam" aria-hidden="true">same fight<small>different tools</small></div>
   <div class="side r">
     <p class="name">The Creator Toolbox</p>
     <h1>Build a show that fights above its weight.</h1>
@@ -168,7 +177,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
   <div class="wrap">
     <h2>The Creator Toolbox</h2>
     <p class="lede">Indie software for people who produce shows without a broadcast budget. Tools run on your own PC, so there are no cloud fees and your footage stays with you.</p>
-    <div class="banner"><img src="assets/The Creator Toolbox.png" alt="The Creator Toolbox: AI Virtual Director, Signal, AI Match Analyst and Motion AI" loading="lazy"></div>
+    <div class="banner"><img src="assets/tct.png" alt="The Creator Toolbox: AI Virtual Director, Signal, AI Match Analyst and Motion AI" loading="lazy"></div>
     <div class="grid" id="tools"></div>
     <p class="rules"><b>Commentary, not copy-paste.</b> Reacting to and analyzing other people's content is a big part of streaming. These tools help you add real analysis and transformation on top of it, and are built to work within each platform's rules. Rules differ by platform, so check yours.</p>
   </div>
@@ -194,8 +203,8 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
   <div class="wrap">
     <h2>Let's talk</h2>
     <p class="lede" style="color:#d9dee6">Tell me which side you're on. I read every message.</p>
-    <form id="form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-      <input type="hidden" name="form-name" value="contact">
+    <form id="form" method="POST" action="contact.php">
+      <input type="hidden" name="t" id="t">
       <p class="hp"><label>Leave empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
       <label>I am a…
         <select name="side" id="side">
@@ -204,9 +213,9 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
           <option>Something in between</option>
         </select>
       </label>
-      <label>Name <input name="name" required autocomplete="name"></label>
-      <label>Email <input name="email" type="email" required autocomplete="email"></label>
-      <label>What are you trying to do? <textarea name="about" placeholder="Your show, your setup, the problem you need solved…"></textarea></label>
+      <label>Name <input name="name" required maxlength="80" autocomplete="name"></label>
+      <label>Email <input name="email" type="email" required maxlength="120" autocomplete="email"></label>
+      <label>What are you trying to do? <textarea name="about" maxlength="2000" placeholder="Your show, your setup, the problem you need solved…"></textarea></label>
       <button class="btn" type="submit">Send message</button>
       <p id="msg" role="status"></p>
     </form>
@@ -215,22 +224,26 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
 <footer><div class="wrap">
   <span>© <span id="yr"></span> Media in Multiplatform · The Creator Toolbox</span>
-  <span id="links"></span>
+  <span>#SameFightDifferentTools <span id="links"></span></span>
 </div></footer>
 
 <script>
 /* ===== EDIT HERE ===== */
 const SITE = {
-  email: "heluis.reg@gmail.com",   // form fallback (mailto) if the host has no form backend
+  email: "luisrene@mediainmultiplatform.com",   // shown only if sending fails
+  formEndpoint: "contact.php",                    // PHP script on your host (see contact.php)
   links: [{ label: "LinkedIn", url: "https://linkedin.com/in/luisrenegarcia/" }]
 };
 const VENDORS = [
   { name: "Axle AI", kind: "AI media asset management",
     text: "Finds your footage by what's in it. Axle AI catalogs media where it already lives, tags faces, objects, logos and speech, and makes it searchable from a browser or inside Adobe Premiere.",
-    points: ["On-premises, cloud or hybrid", "Auto-tagging, transcription and semantic search", "Works with Adobe, Avid and Final Cut"] },
+    points: ["On-premises, cloud or hybrid", "Auto-tagging, transcription and semantic search", "Works with Adobe, Avid and Final Cut"],
+    // One promo image (event, launch, offer). Drop the file in assets/. If it's missing, nothing shows.
+    promo: { src: "assets/axle-promo.jpg", alt: "Axle AI promotion", caption: "", link: "" } },
   { name: "wTVision", kind: "Real-time broadcast graphics",
     text: "On-air graphics and data for live TV. Sports statistics, election specials, virtual sets and augmented reality, plus the control tools to run them live.",
-    points: ["Specialist in live sports data and graphics", "Virtual sets and AR", "Playout and newsroom integration"] }
+    points: ["Specialist in live sports data and graphics", "Virtual sets and AR", "Playout and newsroom integration"],
+    promo: { src: "assets/wtvision-promo.jpg", alt: "wTVision promotion", caption: "", link: "" } }
 ];
 const TOOLS = [  // status: Prototype | Beta | Available | Coming soon
   { name: "Signal", status: "Prototype", tagline: "Know what your audience is saying.",
@@ -248,7 +261,37 @@ const TOOLS = [  // status: Prototype | Beta | Available | Coming soon
 
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const $ = id => document.getElementById(id);
-$("vendors").innerHTML = VENDORS.map(v => `<article class="vcard"><h3>${esc(v.name)}</h3><p class="k">${esc(v.kind)}</p><p>${esc(v.text)}</p><ul>${v.points.map(p => `<li>${esc(p)}</li>`).join("")}</ul></article>`).join("");
+const safeUrl = u => /^(https?:\/\/|\/|[\w-]+(\/|\.))/i.test(u || "") && !/^\s*javascript:/i.test(u) ? u : "";
+function promoHTML(p) {
+  if (!p || !p.src) return "";
+  const inner = `<img src="${esc(p.src)}" alt="${esc(p.alt || "")}" loading="lazy">${p.caption ? `<span>${esc(p.caption)}</span>` : ""}`;
+  const href = safeUrl(p.link);
+  return href ? `<a class="promo" href="${esc(href)}" target="_blank" rel="noopener">${inner}</a>` : `<div class="promo">${inner}</div>`;
+}
+// corporate logo: shown only if assets/mimp-logo.png exists
+(() => { const lg = $("logo"), tx = $("logotxt");
+  const ok = () => { lg.hidden = false; tx.hidden = true; };
+  lg.addEventListener("load", ok);
+  if (lg.complete && lg.naturalWidth) ok(); })();
+// circle: contrasts with the side being explored
+const split = document.querySelector(".split"), sides = split.querySelectorAll(".side"), wide = matchMedia("(min-width:861px)");
+const pick = v => v ? (split.dataset.pick = v) : delete split.dataset.pick;
+sides.forEach(sd => { const v = sd.classList.contains("l") ? "l" : "r";
+  sd.addEventListener("mouseenter", () => wide.matches && pick(v));
+  sd.addEventListener("focusin", () => pick(v));
+  sd.addEventListener("click", () => pick(v)); });
+split.addEventListener("mouseleave", () => wide.matches && pick(null));
+if ("IntersectionObserver" in window) {
+  const io = new IntersectionObserver(es => { if (wide.matches) return;
+    es.forEach(e => e.isIntersecting && pick(e.target.classList.contains("l") ? "l" : "r")); }, { threshold: .45 });
+  sides.forEach(sd => io.observe(sd)); }
+$("t").value = Date.now();
+$("vendors").innerHTML = VENDORS.map(v => `<article class="vcard"><h3>${esc(v.name)}</h3><p class="k">${esc(v.kind)}</p><p>${esc(v.text)}</p><ul>${v.points.map(p => `<li>${esc(p)}</li>`).join("")}</ul>${promoHTML(v.promo)}</article>`).join("");
+document.querySelectorAll(".promo img").forEach(i => {
+  const drop = () => i.closest(".promo").remove();
+  i.addEventListener("error", drop, { once: true });
+  if (i.complete && !i.naturalWidth) drop();
+});
 $("tools").innerHTML = TOOLS.map(t => `<article class="tool"><span class="tag ${/soon/i.test(t.status) ? "s" : ""}">${esc(t.status)}</span><h3>${esc(t.name)}</h3><p class="t">${esc(t.tagline)}</p><p class="d">${esc(t.text)}</p></article>`).join("");
 $("links").innerHTML = SITE.links.map(l => `<a href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)}</a>`).join(" · ");
 $("yr").textContent = new Date().getFullYear();
@@ -257,18 +300,18 @@ document.querySelectorAll('a[href="#contact"]').forEach(a => a.addEventListener(
 }));
 $("form").addEventListener("submit", async e => {
   e.preventDefault();
-  const f = e.target, msg = $("msg");
-  msg.textContent = "Sending…";
+  const f = e.target, msg = $("msg"), btn = f.querySelector("button");
+  btn.disabled = true; msg.textContent = "Sending…";
   try {
-    const r = await fetch("/", { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: new URLSearchParams(new FormData(f)) });
-    if (!r.ok) throw 0;
-    msg.textContent = "Thanks! I'll get back to you soon.";
-    f.reset();
+    const r = await fetch(SITE.formEndpoint, { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: new URLSearchParams(new FormData(f)) });
+    const j = await r.json();
+    if (!r.ok || !j.ok) throw 0;
+    msg.textContent = "Thanks! Your message is in my inbox. I'll get back to you soon.";
+    f.reset(); $("t").value = Date.now();
   } catch (_) {
-    const body = `Name: ${f.name.value}\nI am: ${f.side.value}\n\n${f.about.value}`;
-    location.href = `mailto:${SITE.email}?subject=${encodeURIComponent("Website inquiry")}&body=${encodeURIComponent(body)}`;
-    msg.textContent = "Opening your email app to send this.";
+    msg.textContent = "Couldn't send that. Please try again, or write to " + SITE.email + ".";
   }
+  btn.disabled = false;
 });
 </script>
 </body>
