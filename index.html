@@ -147,7 +147,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 <nav class="bar" aria-label="Choose a side">
   <a class="l" href="#mimp">Media in Multiplatform</a>
   <a class="r" href="#toolbox">The Creator Toolbox</a>
-<button class="lang" id="lang" type="button" aria-label="Cambiar a español">ES</button>
+<button class="lang" id="lang" type="button" aria-label="Cambiar a español">ES/EN</button>
 </nav>
 
 <header class="split">
@@ -421,7 +421,7 @@ function translateStatic() {
   const ta = $("about"); if (!ta._en) ta._en = ta.placeholder;
   ta.placeholder = lang === "es" && PH[ta._en] ? PH[ta._en] : ta._en;
   document.documentElement.lang = lang;
-  const b = $("lang"); b.textContent = lang === "es" ? "EN/ES" : "ES/EN";
+  const b = $("lang"); b.textContent = lang === "es" ? "EN" : "ES";
   b.setAttribute("aria-label", lang === "es" ? "Switch to English" : "Cambiar a español");
 }
 function renderAll() { renderVendors(); renderTools(); translateStatic(); }
